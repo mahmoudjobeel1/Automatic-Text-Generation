@@ -1,0 +1,9 @@
+# Project Description
+You are required to implement a simple algorithmic automatic text generator. It should be able to learn
+some statistics from a number of given documents and then use these statistics to generate text.
+Example given a list of documents
+> generateText "the man" 3
+"the man saw the saw"
+The file DataFile.hs will contain these documents. Your code should use the list docs from that file in
+order to learn. Make sure you have that file in the same folder as your solution .hs file. Then, you can
+write in your file:
