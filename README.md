@@ -1,3 +1,4 @@
 # Automatic-Text-Generation
-This is a simple algorithmic automatic text generator which is able to learn
-some statistics from a number of given documents and then use these statistics to generate text.
+It is program that generates a text with given length given the first 2 words of the text. It generates the text based on statistical properties from a database. The database is the file called "DataFile.hs". 
+## The used language 
+The program is implemented with functional programming paradigm using Haskell language.
