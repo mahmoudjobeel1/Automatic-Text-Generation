@@ -1,4 +1,7 @@
 import DataFile
+import Data.Set 
+mkUniq :: Ord a => [a] -> [a]
+mkUniq = toList  . fromList
 
 wordToken:: String -> [String]
 wordTokenList :: [String] -> [String]
@@ -18,17 +21,14 @@ wordToken x = words x
 wordTokenList []=[]
 wordTokenList (x:y) = words x ++ wordTokenList y
 --------
-uniqueBigrams []=[]
-uniqueBigrams (x:[])=[]
-uniqueBigrams (x:y:z)= if   ( elem x z && elem y z) then uniqueBigrams (y:z) 
-					  else [(x,y)] ++ uniqueBigrams (y:z)
+uniqueBigrams l = mkUniq  (helper l)
+helper [x]=[]
+helper (x:y:z)= [(x,y)] ++ helper (y:z) 
 
 --------------
-uniqueTrigrams [] =[]
-uniqueTrigrams (x:[])=[]
-uniqueTrigrams (x:y:[])=[]
-uniqueTrigrams (x:y:z:m) = if (elem x m && elem y m && elem z m) then uniqueTrigrams (y:z:m)
-					       else [(x,y,z)]++uniqueTrigrams (y:z:m)
+uniqueTrigrams l = mkUniq  (helper2 l)
+helper2 [x,y]=[]
+helper2 (x:y:z:w)= [(x,y,z)] ++ helper2 (y:z:w) 
 
 ------------------
 
