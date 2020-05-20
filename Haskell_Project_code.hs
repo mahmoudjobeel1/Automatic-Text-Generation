@@ -1,7 +1,6 @@
 import DataFile
 import Data.Set 
-mkUniq :: Ord a => [a] -> [a]
-mkUniq = toList  . fromList
+
 
 wordToken:: String -> [String]
 wordTokenList :: [String] -> [String]
@@ -20,6 +19,10 @@ wordToken x = words x
 ----------
 wordTokenList []=[]
 wordTokenList (x:y) = words x ++ wordTokenList y
+--------
+---take a list and return a list of unique elemnts either single element or pair ot tubles
+mkUniq :: Ord a => [a] -> [a]
+mkUniq = toList  . fromList
 --------
 uniqueBigrams l = mkUniq  (helper l)
 helper [x]=[]
